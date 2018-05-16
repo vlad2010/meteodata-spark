@@ -1,0 +1,10 @@
+#!/bin/sh
+
+spark-submit --class "main.MeteoData" --master "local[*]" "./target/scala-2.10/meteo-data-analyser_2.10-0.1.jar"
+
+printf "spark-submit return code %d \n\n", $?
+
+
+
+
+

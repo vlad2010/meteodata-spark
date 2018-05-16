@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sbt package
+
+printf "Sbt return code: %d \n", $?
+
