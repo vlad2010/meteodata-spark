@@ -111,7 +111,7 @@ object MeteoData {
   //     Data(x(0), x(1), x(2).toInt, x(3).toDouble, x(4).toDouble, x(5).toInt, x(6).toDouble, x(7).replace("l", "").toDouble)
   //   )
 
-
+  // read data directly from initial RDD
   val data = rdd 
     .map(_.replace("---", "0").replaceAll("-|#|\\*", ""))  //replace special charactes 
     .map(_.split("\\s+"))
@@ -119,12 +119,9 @@ object MeteoData {
       Data(x(0), x(1), x(2).toInt, x(3).toDouble, x(4).toDouble, x(5).toInt, x(6).toDouble, x(7).replace("l", "").toDouble)
     )
 
-  println("data:  " + data )
-
+  println("data:  " + data )  // print class type here 
 
   import sqlContext.implicits._
-
-  println("------------------> ready to create dataset")
 
   // Unfortunately I have runtime error on this line
   // Exception in thread "main" java.lang.NoSuchMethodError:
@@ -132,9 +129,10 @@ object MeteoData {
   dataset.show
 
 
-// Here we can answer first questions. 
-// We can group data but name and calculate number of measures for each stations 
-    
+  // Here we can answer first questions. 
+  // We can group data but name and calculate number of measures for each stations 
+  // ....................................................
+  // ....................................................
 
   }
 }
